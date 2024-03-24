@@ -35,7 +35,7 @@ int main(void) {
             }
             
             if (coluna == TAMANHO_TABULEIRO - 1) {
-                printf("|"); // Fecha cada linha do tabuleiro com um |
+                printf("|"); 
             }
         }
         printf("\n");
