@@ -1,11 +1,4 @@
-/******************************************************************************
 
-Welcome to GDB Online.
-GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
-C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
-Code, Compile, Run and Debug online from anywhere in world.
-
-*******************************************************************************/
 #include <stdio.h>
 // declaração das funções para serem entendidas pelo sistema
 void soma();
@@ -46,47 +39,47 @@ int main(void) {
 }
 //Escpecificando a função e as relações das variáveis dentro destas para executar a operação 
 void soma() {
-  float numeroA, numeroB, result;
+  float numeroA, numeroB, resultado;
   printf("\nDigite o numero A: ");
   scanf("%f", &numeroA);
   printf("\nDigite o numero B: ");
   scanf("%f", &numeroB);
-  result = numeroA + numeroB;
-  printf("\nO resultado é: %f\n", result);
+  resultado = numeroA + numeroB;
+  printf("\nO resultado é: %f\n", resultado);
 }
 //Escpecificando a função e as relações das variáveis dentro destas para executar a operação 
 
 void subtracao() {
-  float numeroA, numeroB, result;
+  float numeroA, numeroB, resultado;
   printf("\nDigite o numero A: ");
   scanf("%f", &numeroA);
   printf("\nDigite o numero B: ");
   scanf("%f", &numeroB);
-  result = numeroA - numeroB;
-  printf("\nO resultado é: %f\n", result);
+  resultado = numeroA - numeroB;
+  printf("\nO resultado é: %f\n", resultado);
 }
 //Escpecificando a função e as relações das variáveis dentro destas para executar a operação 
 
 void multi() {
-  float numeroA, numeroB, result;
+  float numeroA, numeroB, resultado;
   printf("\nDigite o numero A: ");
   scanf("%f", &numeroA);
   printf("\nDigite o numero B: ");
   scanf("%f", &numeroB);
-  result = numeroA * numeroB;
-  printf("\nO resultado é: %f\n", result);
+  resultado = numeroA * numeroB;
+  printf("\nO resultado é: %f\n", resultado);
 }
 //Escpecificando a função e as relações das variáveis dentro destas para executar a operação 
 
 void divisao() {
-  float numeroA, numeroB, result;
+  float numeroA, numeroB, resultado;
   printf("\nDigite o numero A: ");
   scanf("%f", &numeroA);
   printf("\nDigite o numero B: ");
   scanf("%f", &numeroB);
   if(numeroB != 0) {
-    result = numeroA / numeroB;
-    printf("\nO resultado é: %f\n", result);
+    resultado = numeroA / numeroB;
+    printf("\nO resultado é: %f\n", resultado);
   } else {
     printf("\nNão é possível dividir por zero!\n");
   }
