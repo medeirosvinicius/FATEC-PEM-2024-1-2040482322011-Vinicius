@@ -1,0 +1,95 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>  // Incluído para a função atof
+
+//Vinicius
+// Definição da estrutura Aluno
+typedef struct {
+    char nome[50];
+    double nota;
+} Aluno;
+
+// Função relacionado a Inclusão DE Alunos
+void incluirAluno(Aluno alunos[], int *numAlunos) {
+    if (*numAlunos < 50) {
+        printf("Digite o nome do aluno: ");
+        scanf(" %[^\n]s", alunos[*numAlunos].nome);  // leitura do nome
+        
+        char buffer[10];    //Incorporação de uma outra estrutura de Dados agora para poder incorporar notas
+        double nota;
+        int valid = 0;
+        
+        do {
+            printf("Digite a nota do aluno (0.0 a 10.0): ");
+            scanf("%s", buffer);  // Leitura  da variável
+            
+            nota = atof(buffer);  //Interpretação da String  como a  função double
+            
+            if (nota >= 0.0 && nota <= 10.0) {
+                valid = 1;  // entender como  valido se estiver dentro no rol de numeros de notas
+            } else {
+                printf("Nota inválida! Tente novamente.\n");  //Caso nao esteja informar que será necessario uma nova inserção
+            }
+        } while (!valid);
+        
+        alunos[*numAlunos].nota = nota;
+        (*numAlunos)++;
+    } else {
+        printf("Limite de alunos atingido!\n");
+    }
+}
+
+// Ordenação dos Alunos
+void listarAlunos(Aluno alunos[], int numAlunos) {
+    // Ranking de alunos e notas de maneira ascendente
+    for (int i = 0; i < numAlunos - 1; i++) {
+        for (int j = 0; j < numAlunos - 1 - i; j++) {
+            if (strcmp(alunos[j].nome, alunos[j + 1].nome) > 0) {
+                Aluno temp = alunos[j];
+                alunos[j] = alunos[j + 1];
+                alunos[j + 1] = temp;
+            }
+        }
+    }
+    
+    // Demonstração da lista de Alunos
+    for (int i = 0; i < numAlunos; i++) {
+        printf("Nome: %s, Nota: %.2lf, Situação: %s\n", alunos[i].nome, alunos[i].nota, alunos[i].nota >= 6.0 ? "Aprovado" : "Reprovado");
+    }
+}
+
+// Exibir a função de exibição relacionado a operação desejada
+void exibirMenu() {
+    printf("\nMenu:\n");
+    printf("1. Incluir aluno\n");
+    printf("2. Listar alunos\n");
+    printf("3. Sair\n");
+    printf("Escolha uma opção: ");
+}
+//Introdução da função relacionada a opção desejada,sendo as opções validas e de comum acordo com os dados e requisitos inseridos anteriormente, ocorrerá a funcionamento,caso contrario irá demonstrar como invalido
+int main() {
+    Aluno alunos[50];
+    int numAlunos = 0;
+    int opcao;
+    
+    do {
+        exibirMenu();
+        scanf("%d", &opcao);
+        
+        switch (opcao) {
+            case 1:
+                incluirAluno(alunos, &numAlunos);
+                break;
+            case 2:
+                listarAlunos(alunos, numAlunos);
+                break;
+            case 3:
+                printf("Saindo...\n");
+                break;
+            default:
+                printf("Opção inválida! Tente novamente.\n");
+        }
+    } while (opcao != 3);
+    
+    return 0;
+}
